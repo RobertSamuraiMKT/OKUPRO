@@ -204,8 +204,8 @@ def obtener_precios_mercado(poblacion, tipo, superficie):
 def procesar_excel(df, tipo_filtro):
     # Buscar columnas flexiblemente
     col_id = encontrar_columna(df, ["id", "prinex", "expediente", "inmueble"])
-    col_municipio = encontrar_columna(df, ["municipio", "poblacion", "ciudad", "localidad"])
-    col_direccion = encontrar_columna(df, ["direccion", "domicilio", "calle", "address"])
+    col_municipio = encontrar_columna(df, ["municipio", "poblacion", "población", "ciudad", "localidad"])
+    col_direccion = encontrar_columna(df, ["direccion", "dirección", "domicilio", "calle", "address"])
     col_cp = encontrar_columna(df, ["postal", "cp", "codigo postal"])
     col_superficie = encontrar_columna(df, ["superficie", "metros", "m2", "construidos"])
     col_precio = encontrar_columna(df, ["pvp", "precio", "importe", "valor", "euros"])
