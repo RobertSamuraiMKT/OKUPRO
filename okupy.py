@@ -572,8 +572,8 @@ if archivo is not None:
             return m.get(val, "")
 
         styled = (df_display.style
-                  .applymap(color_score, subset=["Score OKUPRO"])
-                  .applymap(color_riesgo, subset=["Riesgo zona"])
+          .map(color_score, subset=["Score OKUPRO"])
+          .map(color_riesgo, subset=["Riesgo zona"])
                   .format({
                       "Precio oferta (€)": "€ {:,.0f}",
                       "Precio mercado (€)": "€ {:,.0f}",
