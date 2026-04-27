@@ -243,7 +243,7 @@ def validar_datos(df):
         ceros_sup = (pd.to_numeric(df[col_sup], errors="coerce") <= 0).sum()
         if ceros_sup > 0:
             alertas.append(f"⚠️ **{ceros_sup} filas con superficie 0** — serán ignoradas")
-col_pre = encontrar_columna(df, ["pvp", "precio", "importe", "valor", "euros", "mínimo"])
+
     col_mun = encontrar_columna(df, ["municipio", "poblacion", "población", "ciudad", "localidad"])
     if col_mun:
         nulos_mun = df[col_mun].isna().sum() + (df[col_mun].astype(str) == "nan").sum()
