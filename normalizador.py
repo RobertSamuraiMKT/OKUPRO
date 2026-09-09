@@ -144,4 +144,4 @@ def encontrar_columna_inteligente(df, posibles, buscar_en=None):
                 if sinonimo_norm in col_norm or col_norm in sinonimo_norm:
                     return col
     return None
-  "Añadido motor de normalización de columnas"
+
