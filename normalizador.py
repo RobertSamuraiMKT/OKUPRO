@@ -7,48 +7,54 @@ SINONIMOS = {
     "municipio": [
         "municipio", "poblacion", "población", "ciudad", "localidad",
         "city", "town", "municipality", "ayuntamiento",
-        "poblacion", "poblation", "town"
+        "poblacion", "poblation", "town", "población"
     ],
     "direccion": [
         "direccion", "dirección", "domicilio", "calle", "address",
         "street", "via", "avenida", "plaza", "camino",
         "dirección completa", "direccion completa", "dir", "calle",
-        "direccion", "dirección", "ubicacion", "ubicación"
+        "direccion", "dirección", "ubicacion", "ubicación",
+        "descripcion_ur", "descripcion ur"  # ← Para el Excel de Alejandro
     ],
     "precio": [
         "pvp", "precio", "importe", "valor", "euros", "price",
         "amount", "value", "coste", "venta", "tasación", "tasacion",
-        "precio de referencia", "€ pvp", "precio", "euros",
-        "precio venta", "valor tasacion", "importe total demandado",
-        "tipo para subasta", "precio referencia", "precio cierre"
+        "precio de referencia", "€ pvp", "PVP", "Pvp", "pvp",
+        "precio", "precio venta", "importe total demandado",
+        "tipo para subasta", "precio referencia", "precio cierre",
+        "PRECIO", "Precio", "precio"  # ← Para el Excel de Alejandro
     ],
     "superficie": [
         "superficie", "metros", "m2", "construidos", "construida",
         "area", "sqm", "size", "surface", "metros2",
         "superficie_construida", "superficie construida",
         "superficie construida m²", "sup construida", "s m²",
-        "m²", "m2 construidos"
+        "m²", "m2 construidos", "SUPERFICIE_CONSTRUIDA",  # ← Para Alejandro
+        "superficie construida", "sup_construida"
     ],
     "cp": [
         "postal", "cp", "codigopostal", "códigopostal",
         "zip", "zipcode", "codigo postal", "código postal",
-        "cp", "codigo postal", "zip code", "postal code"
+        "cp", "codigo postal", "zip code", "postal code",
+        "COD_POSTAL", "cod_postal"  # ← Para Alejandro
     ],
     "id": [
         "id", "expediente", "prinex", "inmueble", "identificador",
         "referencia", "ref", "identificacion",
         "id inmueble completo", "id producto", "property id",
-        "property idh", "idh", "id de producto"
+        "property idh", "idh", "id de producto",
+        "Id inmueble completo", "ID INMUEBLE COMPLETO"
     ],
     "ccaa": [
         "ccaa", "comunidad", "autonomia", "autonomía", "region",
         "provincia", "comunidad autonoma", "comunidad autónoma",
-        "comunidad", "autonomia", "autonomía"
+        "comunidad", "autonomia", "autonomía", "PROVINCIA"  # ← Para Alejandro
     ],
     "tipo": [
         "tipo", "categoria", "categoría", "clase", "tipologia",
         "type", "category", "clasificacion",
-        "tipo inmueble", "tipología", "property type"
+        "tipo inmueble", "tipología", "property type",
+        "TIPO_INMUEBLE", "tipo_inmueble"  # ← Para Alejandro
     ],
     "ob_deuda": [
         "ob", "deuda", "saldo", "outstanding", "balance",
@@ -57,37 +63,43 @@ SINONIMOS = {
     "id_inmueble_completo": [
         "id inmueble completo", "id_inmueble_completo",
         "cd inmueble", "referencia inmueble",
-        "id inmueble", "inmueble id"
+        "id inmueble", "inmueble id",
+        "Id inmueble completo", "ID INMUEBLE COMPLETO",
+        "id_inmueble"
     ],
     "okupado_fase_sae": [
         "okupado", "ocupado", "fase sae", "estado ocupación",
         "situacion ocupacion", "occupied", "sae phase",
         "okupado - fase sae", "estado producto",
-        "situación ocupación", "tipo ocupante",
-        "situación judicial", "situacion judicial",
-        "tf_sae.ds_juzgados", "tf_sae ds juzgados"
+        "tipo ocupante", "situacion judicial",  # ← Para Alejandro
+        "situación judicial", "estado del producto",
+        "OKUPADO - FASE SAE", "TIPO OCUPANTE",  # ← Para Alejandro
+        "SITUACIÓN JUDICIAL", "situacion_judicial"
     ],
     "provincia": [
         "provincia", "province", "provincia",
-        "comunidad autónoma", "comunidad"
+        "comunidad autónoma", "comunidad", "PROVINCIA"
     ],
     "poblacion": [
         "poblacion", "población", "municipio", "ciudad", "town",
-        "city", "poblation", "localidad"
+        "city", "poblation", "localidad", "POBLACION"
     ],
     "referencia_catastral": [
         "referencia catastral", "ref_catastral", "catastral",
-        "cadastral reference", "ref catastral", "cd referencia"
+        "cadastral reference", "ref catastral", "cd referencia",
+        "REF_CATASTRAL", "referencia_catastral"
     ],
     "dormitorios": [
         "dormitorios", "habitaciones", "rooms", "bedrooms",
         "nº dormitorios", "numero dormitorios",
         "nº habitaciones", "número habitaciones",
-        "num dormitorios", "num habitaciones"
+        "num dormitorios", "num habitaciones",
+        "Nº DORMITORIOS"
     ],
     "banos": [
         "baños", "banos", "bathrooms", "baths",
-        "nº baños", "numero baños", "num baños"
+        "nº baños", "numero baños", "num baños",
+        "Nº BAÑOS"
     ],
     "fecha_subasta": [
         "fecha subasta", "subasta fecha", "fecha de subasta",
@@ -99,11 +111,12 @@ SINONIMOS = {
     ],
     "estado_producto": [
         "estado producto", "estado", "status",
-        "estado del producto", "situacion", "situación"
+        "estado del producto", "situacion", "situación",
+        "ESTADO PRODUCTO"
     ],
     "vulnerabilidad": [
-        "vulnerabilidad", "vulnerable", "vulnerabilidad",
-        "porpob_bbvv_11", "riesgo zona"
+        "vulnerabilidad", "vulnerable", "porpob_bbvv_11",
+        "riesgo zona", "VULNERABILIDAD"  # ← Para Alejandro
     ],
 }
 
@@ -168,6 +181,12 @@ MUNICIPIOS_MAP = {
     "PALAFRUGELL": "PALAFRUGELL",
     "L'HOSPITALET DE LLOBREGAT": "L'HOSPITALET DE LLOBREGAT",
     "HOSPITALET DE LLOBREGAT": "L'HOSPITALET DE LLOBREGAT",
+    "CATRAL": "CATRAL",
+    "NOVELDA": "NOVELDA",
+    "VIDRERES": "VIDRERES",
+    "AMBROZ": "AMBROZ",
+    "REALEJOS": "REALEJOS",
+    "LOS REALEJOS": "REALEJOS",
 }
 
 # ─── Funciones auxiliares ────────────────────────────────────────────
@@ -198,7 +217,7 @@ def normalizar_tipo_inmueble(valor):
     if not isinstance(valor, str):
         return "PISO"
     valor = valor.upper().strip()
-    if "PISO" in valor or "VIVIENDA" in valor or "FLAT" in valor or "APART" in valor or "DUPLEX" in valor or "PISO" in valor or "APARTAMENTO" in valor or "APTO" in valor:
+    if "PISO" in valor or "VIVIENDA" in valor or "FLAT" in valor or "APART" in valor or "DUPLEX" in valor or "APARTAMENTO" in valor or "APTO" in valor:
         return "PISO"
     elif "CASA" in valor or "CHALET" in valor or "HOUSE" in valor or "VILLA" in valor or "UNIFAM" in valor or "ADOSADO" in valor:
         return "CASA"
