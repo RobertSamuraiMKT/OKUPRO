@@ -2,7 +2,7 @@ import unicodedata
 import re
 import pandas as pd
 
-# ─── Mapeo de sinónimos por categoría (VERSIÓN AMPLIADA) ──────────────
+# ─── Mapeo de sinónimos por categoría (VERSIÓN DEFINITIVA) ──────────────
 SINONIMOS = {
     "municipio": [
         "municipio", "poblacion", "población", "ciudad", "localidad",
@@ -14,47 +14,50 @@ SINONIMOS = {
         "street", "via", "avenida", "plaza", "camino",
         "dirección completa", "direccion completa", "dir", "calle",
         "direccion", "dirección", "ubicacion", "ubicación",
-        "descripcion_ur", "descripcion ur"  # ← Para el Excel de Alejandro
+        "descripcion_ur", "descripcion ur"
     ],
     "precio": [
-        "pvp", "precio", "importe", "valor", "euros", "price",
+        "pvp", "PVP", "Pvp", "pvp",
+        "precio", "importe", "valor", "euros", "price",
         "amount", "value", "coste", "venta", "tasación", "tasacion",
-        "precio de referencia", "€ pvp", "PVP", "Pvp", "pvp",
-        "precio", "precio venta", "importe total demandado",
+        "precio de referencia", "€ pvp",
+        "precio venta", "importe total demandado",
         "tipo para subasta", "precio referencia", "precio cierre",
-        "PRECIO", "Precio", "precio"  # ← Para el Excel de Alejandro
+        "PRECIO", "Precio",
+        "VENTA ESPECIAL PRINEX"
     ],
     "superficie": [
         "superficie", "metros", "m2", "construidos", "construida",
         "area", "sqm", "size", "surface", "metros2",
         "superficie_construida", "superficie construida",
         "superficie construida m²", "sup construida", "s m²",
-        "m²", "m2 construidos", "SUPERFICIE_CONSTRUIDA",  # ← Para Alejandro
+        "m²", "m2 construidos", "SUPERFICIE_CONSTRUIDA",
         "superficie construida", "sup_construida"
     ],
     "cp": [
         "postal", "cp", "codigopostal", "códigopostal",
         "zip", "zipcode", "codigo postal", "código postal",
         "cp", "codigo postal", "zip code", "postal code",
-        "COD_POSTAL", "cod_postal"  # ← Para Alejandro
+        "COD_POSTAL", "cod_postal"
     ],
     "id": [
         "id", "expediente", "prinex", "inmueble", "identificador",
         "referencia", "ref", "identificacion",
         "id inmueble completo", "id producto", "property id",
         "property idh", "idh", "id de producto",
-        "Id inmueble completo", "ID INMUEBLE COMPLETO"
+        "Id inmueble completo", "ID INMUEBLE COMPLETO",
+        "ID", "Id de Producto"
     ],
     "ccaa": [
         "ccaa", "comunidad", "autonomia", "autonomía", "region",
         "provincia", "comunidad autonoma", "comunidad autónoma",
-        "comunidad", "autonomia", "autonomía", "PROVINCIA"  # ← Para Alejandro
+        "comunidad", "autonomia", "autonomía", "PROVINCIA"
     ],
     "tipo": [
         "tipo", "categoria", "categoría", "clase", "tipologia",
         "type", "category", "clasificacion",
         "tipo inmueble", "tipología", "property type",
-        "TIPO_INMUEBLE", "tipo_inmueble"  # ← Para Alejandro
+        "TIPO_INMUEBLE", "tipo_inmueble"
     ],
     "ob_deuda": [
         "ob", "deuda", "saldo", "outstanding", "balance",
@@ -71,10 +74,12 @@ SINONIMOS = {
         "okupado", "ocupado", "fase sae", "estado ocupación",
         "situacion ocupacion", "occupied", "sae phase",
         "okupado - fase sae", "estado producto",
-        "tipo ocupante", "situacion judicial",  # ← Para Alejandro
+        "tipo ocupante", "situacion judicial",
         "situación judicial", "estado del producto",
-        "OKUPADO - FASE SAE", "TIPO OCUPANTE",  # ← Para Alejandro
-        "SITUACIÓN JUDICIAL", "situacion_judicial"
+        "OKUPADO - FASE SAE", "TIPO OCUPANTE",
+        "SITUACIÓN JUDICIAL", "situacion_judicial",
+        "ESTADO DEL PRODUCTO", "Estado del producto",
+        "ESTADO PRODUCTO"
     ],
     "provincia": [
         "provincia", "province", "provincia",
@@ -116,7 +121,7 @@ SINONIMOS = {
     ],
     "vulnerabilidad": [
         "vulnerabilidad", "vulnerable", "porpob_bbvv_11",
-        "riesgo zona", "VULNERABILIDAD"  # ← Para Alejandro
+        "riesgo zona", "VULNERABILIDAD"
     ],
 }
 
