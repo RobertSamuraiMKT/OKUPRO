@@ -279,6 +279,19 @@ def procesar_cartera(df, tipo_filtro, precios_usuario, vuln_dict,
     col_pre = encontrar_columna(df, ["precio"])
     col_okupado = encontrar_columna(df, ["okupado_fase_sae"])
 
+    # ─── DIAGNÓSTICO ──────────────────────────────────────────────────
+    st.write("🔍 Columnas detectadas en el Excel:")
+    st.write(f"ID: {col_id}")
+    st.write(f"Municipio: {col_mun}")
+    st.write(f"Dirección: {col_dir}")
+    st.write(f"CP: {col_cp}")
+    st.write(f"Superficie: {col_sup}")
+    st.write(f"Precio: {col_pre}")
+    st.write(f"OKUPADO: {col_okupado}")
+    
+    # Mostrar primeras filas del Excel para depurar
+    st.write("📋 Primeras filas del Excel (sin procesar):")
+    st.dataframe(df.head(5))
     if not col_mun:
         st.error(f"❌ No se encontró columna de municipio. Columnas: {', '.join(df.columns)}")
         return pd.DataFrame()
