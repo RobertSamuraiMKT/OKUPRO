@@ -279,19 +279,6 @@ def procesar_cartera(df, tipo_filtro, precios_usuario, vuln_dict,
     col_pre = encontrar_columna(df, ["precio"])
     col_okupado = encontrar_columna(df, ["okupado_fase_sae"])
 
-    # ─── DIAGNÓSTICO ──────────────────────────────────────────────────
-    st.write("🔍 Columnas detectadas en el Excel:")
-    st.write(f"ID: {col_id}")
-    st.write(f"Municipio: {col_mun}")
-    st.write(f"Dirección: {col_dir}")
-    st.write(f"CP: {col_cp}")
-    st.write(f"Superficie: {col_sup}")
-    st.write(f"Precio: {col_pre}")
-    st.write(f"OKUPADO: {col_okupado}")
-    
-    # Mostrar primeras filas del Excel para depurar
-    st.write("📋 Primeras filas del Excel (sin procesar):")
-    st.dataframe(df.head(5))
     if not col_mun:
         st.error(f"❌ No se encontró columna de municipio. Columnas: {', '.join(df.columns)}")
         return pd.DataFrame()
@@ -311,6 +298,17 @@ def procesar_cartera(df, tipo_filtro, precios_usuario, vuln_dict,
             direccion    = str(row.get(col_dir, "")) if col_dir else ""
             cp           = str(row.get(col_cp, "")).strip() if col_cp else ""
             id_inmueble  = str(row.get(col_id, "")) if col_id else ""
+
+            # ─── FILTRO DE COHERENCIA ──────────────────────────────
+            # Descartar inmuebles con superficie o precio absurdos
+            if superficie > 1000:      # Más de 1000 m² no es un piso normal
+                continue
+            if superficie < 20:        # Menos de 20 m² no es habitable
+                continue
+            if precio_orig < 5000:     # Menos de 5000€ es sospechoso
+                continue
+            if precio_orig > 5000000:  # Más de 5M€ no es para pequeños inversores
+                continue
 
             if superficie <= 0 or precio_orig <= 0 or not municipio or municipio == "nan":
                 continue
@@ -442,9 +440,6 @@ def generar_pdf_inmueble(row):
 # ═══════════════════════════════════════════════════════════════════════
 
 def detectar_columna_deuda(df):
-    """
-    Busca la columna de deuda usando el motor inteligente
-    """
     col = encontrar_columna_inteligente(df, ["ob_deuda"])
     if col:
         return col, False
@@ -1125,4 +1120,3 @@ with tab_npl:
 
 st.markdown("---")
 st.caption("OKUPRO v7.1 · Cartera OkuPro + Módulo NPL · Scoring multidimensional · LTV & Margen inversor · PDF por inmueble")
-"Añadido módulo NPL completo y UI"
