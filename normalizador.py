@@ -14,8 +14,7 @@ SINONIMOS = {
     ],
     "precio": [
         "pvp", "PVP", "Pvp",
-        "precio", "PRECIO", "precio venta",
-        "importe", "valor", "euros", "price", "coste", "venta"
+        "precio", "PRECIO", "precio venta"
     ],
     "superficie": [
         "superficie", "metros", "m2", "construidos", "construida",
@@ -42,7 +41,7 @@ SINONIMOS = {
         "okupado - fase sae", "OKUPADO - FASE SAE",
         "okupado", "ocupado", "fase sae",
         "estado ocupación", "situacion ocupacion",
-        "situación judicial", "tipo ocupante"
+        "estado del producto", "Estado del producto"
     ],
     "vulnerabilidad": [
         "vulnerabilidad", "VULNERABILIDAD", "vulnerable",
